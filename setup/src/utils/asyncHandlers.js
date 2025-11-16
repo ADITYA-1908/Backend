@@ -7,7 +7,7 @@ const asyncHandler = (requestHandler) => {
             next(error);
         }
     };
-};
+}; 
 
 
 

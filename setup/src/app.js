@@ -1,6 +1,8 @@
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
-import express from "express"
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import errorHandler from "./middlewares/error.middleware.js";
+
+import express from "express";
 const app = express()
 
 app.use(cors({
@@ -22,6 +24,12 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 
+//routes
+import userRouter from "./routes/user.routes.js";
 
+//routes decleration
+app.use("/api/v1/users", userRouter)
+
+app.use(errorHandler);
 
 export default app
